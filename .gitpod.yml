@@ -4,11 +4,13 @@ tasks:
     init: |
       curl -s https://get.nextflow.io | bash \
       && chmod +x nextflow \
-      && mkdir -p .local/bin
-      && mv nextflow .local/bin \
+      && mkdir -p ~/.local/bin \
+      && mv nextflow ~/.local/bin \
       && exit
-  #- name: Start web server
-  #  init: python -m http.server 8000
+  - name: Start web server
+    init: python -m http.server 8000
+  - name: Terminal
+    init: bash
 
 ports:
   - port: 5900
