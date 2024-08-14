@@ -7,6 +7,13 @@ tasks:
       && mkdir -p ~/.local/bin \
       && mv nextflow ~/.local/bin \
       && exit
+  - name: Install QuPath
+    init: |
+      cd ~
+      curl -OJL https://github.com/qupath/qupath/releases/download/v0.5.1/QuPath-v0.5.1-Linux.tar.xz \
+      && tar xf QuPath-v0.5.1-Linux.tar.xz \
+      && rm Path-v0.5.1-Linux.tar.xz \
+      && ln -s ~/.local/bin ~/QuPath-v0.5.1-Linux/QuPath/bin/QuPath
   - name: Web server
     command: python -m http.server 8000
   - name: Terminal
