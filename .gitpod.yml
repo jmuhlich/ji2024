@@ -4,14 +4,15 @@ tasks:
     init: |
       curl -s https://get.nextflow.io | bash \
       && chmod +x nextflow \
-      && mv nextflow /usr/local/bin \
+      && mkdir -p .local/bin
+      && mv nextflow .local/bin \
       && exit
-  - name: Start web server
-    init: python -m http.server 8000
+  #- name: Start web server
+  #  init: python -m http.server 8000
 
 ports:
-  - port: 8000
-    onOpen: open-preview
+  - port: 5900
+    onOpen: open-browser
 
 vscode:
   extensions:
