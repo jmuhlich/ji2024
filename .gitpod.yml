@@ -1,11 +1,15 @@
 image: nfcore/gitpod:latest
 tasks:
   - name: Update Nextflow
-    command: |
-      nextflow self-update
+    init: nextflow self-update
   - name: unset JAVA_TOOL_OPTIONS
-    command: |
-      unset JAVA_TOOL_OPTIONS
+    init: unset JAVA_TOOL_OPTIONS
+  - name: Start web server
+    init: python -m http.server 8000
+
+ports:
+  - port: 8000
+    onOpen: open-preview
 
 vscode:
   extensions:
