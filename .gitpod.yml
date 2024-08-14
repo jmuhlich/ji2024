@@ -13,10 +13,10 @@ tasks:
     command: clear; bash
 
 ports:
-  - port: 5900
+  - port: 6080
     onOpen: open-browser
   - port: 8000
-    onOpen: open-browser
+    onOpen: open-preview
 
 vscode:
   extensions:
