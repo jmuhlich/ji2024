@@ -1,9 +1,11 @@
-image: nfcore/gitpod:latest
+image: gitpod/workspace-full-vnc:2024-05-27-17-11-15
 tasks:
-  - name: Update Nextflow
-    init: nextflow self-update
-  - name: unset JAVA_TOOL_OPTIONS
-    init: unset JAVA_TOOL_OPTIONS
+  - name: Install Nextflow
+    init: |
+      curl -s https://get.nextflow.io | bash \
+      && chmod +x nextflow \
+      && mv nextflow /usr/local/bin \
+      && exit
   - name: Start web server
     init: python -m http.server 8000
 
