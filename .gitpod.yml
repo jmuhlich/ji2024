@@ -7,13 +7,15 @@ tasks:
       && mkdir -p ~/.local/bin \
       && mv nextflow ~/.local/bin \
       && exit
-  - name: Start web server
-    init: python -m http.server 8000
+  - name: Web server
+    command: python -m http.server 8000
   - name: Terminal
-    init: bash
+    command: clear; bash
 
 ports:
   - port: 5900
+    onOpen: open-browser
+  - port: 8000
     onOpen: open-browser
 
 vscode:
